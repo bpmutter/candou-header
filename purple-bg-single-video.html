@@ -12,19 +12,17 @@
 <body>
   <head>
     <style>
-    body{
-      color: #737272;
-      font-family: Eina03, Helvetica Neue, helvetica, arial, sans-serif;
-    }
     .header__main{
-      height:550px;
-      margin: 0 auto;
       width: 100%;
+      margin: 0 auto;
+      padding: 50px 0;
       background-color: #F0EDF0 ;
       display: grid;
       grid-template-columns: 1fr 1fr;
       justify-items: center;
       align-items: center;
+      color: #737272;
+      font-family: Eina03, Helvetica Neue, helvetica, arial, sans-serif;
     }
     .header__inner-content{
       padding: 0 4em;
@@ -39,7 +37,7 @@
     }
     .header__title{
       font-family: 'Anton', sans-serif;
-      font-size: 5.75em;
+      font-size: 6.5em;
       line-height: 1;
     }
     .header__description{
@@ -65,49 +63,38 @@
       width: 90%;
       justify-self: center;
     }
-     @media screen and (max-width: 1000px){  
+     @media screen and (max-width: 1325px){  
       .header__inner-content{
         padding-top: 3em;
       }
       .header__title{
-        font-size: 3em;;
+        font-size: 3.7em;
       }
       .header__video{
         height: 100%;
       }
       
     }
-    @media screen and (max-width: 850px){
-      .header__main{
-        min-height: none;
-        max-height: none;
-        height:auto;
-        display: flex;
-        justify-content: space-evenly;
-      }
-      .header__inner-content{
-        position: static;
-        max-width: none;
-        background-color:#F0EDF0;
-        padding: 2em 1.5em 2em;
-      }
-      .header__title{
-        font-size: 3.75em;;
-      }
-      .header__description{
-        line-height: 1.25;
-      }
-      .header__video{
-        width: 325px;
-      height: 325px;
-      }
-    }
-    @media screen and (max-width: 650px){
+    @media screen and (max-width: 1000px){
       .header__main{
         padding-top: 2em;
+        display: flex;
         flex-direction: column-reverse;
         text-align: center;
       }
+      .header__video{
+        height: 300px
+      }
+    }
+    @media screen and (max-width: 500px){
+        .header__inner-content{
+            padding: 0 1em;
+        }
+    }
+    @media screen and (max-width: 425px){
+        .header__title{
+            font-size: 3em;
+        }
     }
   </style>
   </head>
@@ -119,7 +106,7 @@
         <div class="header__title" style="color:#C6C6C6">IT</div>
       </div>
       <p class="header__description">We offer our early stage portfolio companies, capital, attention, and experience that enable them to focus on innovations that have impact on the economy and humanity.</p>
-      <div><a href="somepage.html"><button type="button" class="header__button">Our Portfolio <i class="fas fa-arrow-circle-right"></i></button></a></div>
+      <div><a href="/portfolio"><button type="button" class="header__button">Our Portfolio <i class="fas fa-arrow-circle-right"></i></button></a></div>
     </div>
     <video class="header__video" preload="auto" autoplay="true"  loop="loop" muted="muted" volume="0" src="https://candou-media.s3.us-east-2.amazonaws.com/tight-render-end.mp4">
     </video>
