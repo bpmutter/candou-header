@@ -69,9 +69,6 @@
       height: 500px !important;
       width: 500px !important;
       border-radius: 50%;
-      border: 5px solid black !important;
-      
-      
     }
      @media screen and (max-width: 1250px){  
       .header__inner-content{
@@ -136,11 +133,11 @@
         <div class="header__title" style="color:#C6C6C6">IT</div>
       </div>
       <p class="header__description">We offer our early stage portfolio companies, capital, attention, and experience that enable them to focus on innovations that have impact on the economy and humanity.</p>
-      <div><a href="somepage.html"><button type="button" class="header__button">Our Portfolio <i class="fas fa-arrow-circle-right"></i></button></a></div>
+      <div><a href="/portfolio"><button type="button" class="header__button">Our Portfolio <i class="fas fa-arrow-circle-right"></i></button></a></div>
     </div>
     <div class="header__video-wrapper">
-         <video class="header__video" preload="auto" autoplay="true"  muted="muted" volume="0">
-    </video>
+      <video class="header__video" preload="auto" autoplay="true" playsinline muted="muted" volume="0">
+      </video>
     </div>
    
   </section>
@@ -149,20 +146,28 @@
 <script type="text/javascript">
   const video = document.querySelector('.header__video');
   const source = document.createElement('source');
+  
+    if(window.innerWidth > 800){
+       source.setAttribute('src', 'https://candou-media.s3.us-east-2.amazonaws.com/tight-render-start.mp4');
 
-  source.setAttribute('src', 'https://candou-media.s3.us-east-2.amazonaws.com/tight-render-start.mp4');
-
-  video.appendChild(source);
-  video.play();
-
-  setTimeout(function() {  
-      video.pause();
-
-      source.setAttribute('src', 'https://candou-media.s3.us-east-2.amazonaws.com/tight-render-end.mp4'); 
-      video.load();
+      video.appendChild(source);
       video.play();
-      video.setAttribute('loop', 'loop')
-  }, 3400);
+    
+      setTimeout(function() {  
+          video.pause();
+    
+          source.setAttribute('src', 'https://candou-media.s3.us-east-2.amazonaws.com/tight-render-end.mp4'); 
+          video.load();
+          video.play();
+          video.setAttribute('loop', 'loop')
+      }, 3550); 
+    } else {
+        source.setAttribute('src', 'https://candou-media.s3.us-east-2.amazonaws.com/tight-render-end.mp4');
+        video.appendChild(source);
+        video.play();
+        video.setAttribute('loop', 'loop')
+    }
+  
 
 </script>
 </body>
