@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEW Video background</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/07987f6265.js" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+  <head>
+    <style>
+    body{
+      color: #737272;
+      font-family: Eina03, Helvetica Neue, helvetica, arial, sans-serif;
+    }
+    .header__main{
+      height:auto;
+      margin: auto;
+      width: 100%;
+      overflow: hidden;
+      margin: 0 auto;
+      /* background-color: #F0EDF0; */
+    }
+    .header__video {
+      position: relative;
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+      z-index: -100;
+      /* top: -50px; */
+
+    }
+    .header__inner-content{
+      padding: 3em 4em 0 ;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      max-width: 450px;
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .header__mobile-video{
+      display: none;
+    }
+    .header__text{
+      display: block;
+    }
+    .header__text--fade-in{
+      display: block;
+      opacity: 1;
+      transition: opacity 2s linear;
+    }
+    .hidden-content{
+      display: none;
+      opacity: 0;
+    }
+    
+    .header__title-group{
+      padding-bottom: 1em;
+      display: block;
+    }
+    .header__title{
+      font-family: 'Anton', sans-serif;
+      font-size: 5.75em;
+      line-height: 1;
+    }
+    .header__description{
+      line-height: 1.5;
+    }
+    .header__button{
+      font-size: 18px;
+      color: #222222; 
+      padding: .5em;
+      border: none;
+      background-color: none;
+      border-radius: .5em;
+      background-color: transparent !important;
+    }
+    .header__button:hover{
+      color: #88205D;
+      background-color: transparent !important;
+      
+    }
+     @media screen and (max-width: 1200px){
+      
+      .header__video {
+        top: 0;
+      }
+      .header__inner-content{
+        padding-top: 3em !important;
+        justify-content: center;
+        height: 100%;
+        max-width: 350px;
+      }
+      .header__title{
+        font-size: 3.5em;;
+      }
+     }
+     @media screen and (max-width: 1100px){
+       .header__inner-content{
+         justify-content: flex-start;
+       }
+     }
+
+    @media screen and (max-width: 800px){
+      .header__main{
+        min-height: none;
+        max-height: none;
+        position: static;
+        height:auto;
+      }
+      .header__inner-content{
+        position: static;
+        max-width: none;
+        background-color:#F0EDF0;
+        padding: 0 1.5em 2em;
+      }
+      .header__video{
+        display: none;
+      }
+      .header__mobile-video{
+        display: block;
+        max-width: 250px;
+        margin: 0 auto;
+        padding-bottom: 2em;
+      }
+      .header__title-group{
+        text-align: center;
+      }
+      .header__title{
+        font-size: 3.75em;
+      }
+      .header__description{
+        line-height: 1.25;
+      }
+    }
+    @media screen and (max-width: 550px){
+      .header__mobile-video{
+        display: block;
+        max-width: 250px;
+        margin: 0 auto;
+        padding-bottom: 2em;
+      }
+    }
+  </style>
+  </head>
+  <section class="header__main">
+    <video class="header__video" id="video" preload="auto" autoplay="true"  muted="muted" volume="0">
+    </video>
+    <div class="header__inner-content">
+      <video class="header__mobile-video" preload="auto" loop="loop" autoplay="true"  muted="muted" volume="0" src="https://candou-media.s3.us-east-2.amazonaws.com/tight-render-end.mp4">
+      </video>
+      <div class="header__text hidden-content">
+        <div class="header__title-group">
+          <div class="header__title" style="color:#B697B6">TOGETHER</div>
+          <div class="header__title"><span style="color:#666">WE </span><span style="color:#88205D">CAN DO</span></div>
+          <div class="header__title" style="color:#C6C6C6">IT</div>
+        </div>
+        <p class="header__description">We offer our early stage portfolio companies, capital, attention, and experience that enable them to focus on innovations that have impact on the economy and humanity.</p>
+        <div><a href="somepage.html"><button type="button" class="header__button">Our Portfolio <i class="fas fa-arrow-circle-right"></i></button></a></div>
+      </div>
+    </div>
+    
+  </section>
+  
+
+<script type="text/javascript">
+  const headerText = document.querySelector('.header__text');
+  if(window.innerWidth > 800){
+    const video = document.getElementById('video');
+    const source = document.createElement('source');
+    source.setAttribute('src', 'http://www.candouventures.com/wp-content/uploads/2021/01/Final-Render-FullHD_1-2.mp4');
+
+    video.appendChild(source);
+    video.play();
+
+    setTimeout(function() {  
+        video.pause();
+
+        source.setAttribute('src', 'http://www.candouventures.com/wp-content/uploads/2021/01/Final-Render-FullHD_2-1-1.mp4'); 
+        video.load();
+        video.play();
+        video.setAttribute('loop', 'loop')
+        headerText.style.opacity = 0
+        headerText.classList.remove('hidden-content')
+        fadeTextIn()
+          
+    }, 3800);
+    
+  } else {
+    headerText.classList.remove('hidden-content')
+  }
+
+  function fadeTextIn(){
+    let opacity = headerText.style.opacity
+    opacity = .05;
+    const opacitySetter = setInterval(function(){
+      opacity = Number(headerText.style.opacity);
+      console.log('opacity is...',opacity)
+      opacity += .05;
+      headerText.style.opacity = opacity;
+
+      if(opacity > 1) clearInterval(opacitySetter)
+
+
+    }, 50)
+  }
+
+</script>
+</body>
+</html>
