@@ -151,7 +151,7 @@
   </style>
   </head>
   <section class="new-header__main">
-    <video class="new-header__video" id="video" preload="auto" autoplay="true"  muted="muted" volume="0">
+    <video class="new-header__video" id="video" preload="auto" autoplay="true" playsinline muted="muted" volume="0">
     </video>
     <div class="new-header__inner-content">
       <video class="new-header__mobile-video" preload="auto" loop="loop" autoplay="true"  muted="muted" volume="0" src="https://candou-media.s3.us-east-2.amazonaws.com/tight-render-end.mp4">
@@ -163,7 +163,7 @@
           <div class="new-header__title" style="color:#C6C6C6">IT</div>
         </div>
         <p class="new-header__description">We offer our early stage portfolio companies, capital, attention, and experience that enable them to focus on innovations that have impact on the economy and humanity.</p>
-        <div><a href="portfolio.html"><button type="button" class="new-header__button">Our Portfolio <i class="fas fa-arrow-circle-right"></i></button></a></div>
+        <div><a href="portfolio"><button type="button" class="new-header__button">Our Portfolio <i class="fas fa-arrow-circle-right"></i></button></a></div>
       </div>
     </div>
     
@@ -197,6 +197,9 @@
     });
   } else {
     headerText.classList.remove('hidden-content')
+    const mobileVideo = document.querySelector(".new-header__mobile-video")
+    mobileVideo.play();
+    mobileVideo.setAttribute('loop', 'loop')
   }
 
   function fadeTextIn(){
